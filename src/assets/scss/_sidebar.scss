@@ -1,0 +1,28 @@
+.sidebar {
+  background: $primary;
+  font-size: 12px;
+  .sidebar-brand {
+    background: $primary;
+    h1 {
+      font-size: 16px;
+      margin: 0;
+    }
+    span {
+      opacity: 0.7;
+    }
+  }
+  .nav-link {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    &.active {
+      border-left: 2px solid #fff;
+    }
+  }
+
+  .nav-group-items {
+    .nav-link {
+      padding-left: 42px !important;
+    }
+  }
+}

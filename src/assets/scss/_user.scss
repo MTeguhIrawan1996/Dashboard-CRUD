@@ -1,0 +1,96 @@
+.user {
+  padding: 0px 30px;
+  .header-wrapper {
+    background-color: $gray-100;
+    padding: 10px;
+  }
+  .header-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-search-item {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 20px;
+    height: 30px;
+    border-radius: 5px;
+    .header-search-input {
+      width: 100%;
+      border: none;
+      outline: none;
+      font-size: 14px;
+    }
+  }
+
+  .nav-tabs {
+    .nav-link {
+      color: $primary;
+      padding: 5px 12px;
+      border: 0;
+      font-size: 12px;
+
+      &:focus {
+        border-bottom: 3px solid $primary;
+        font-weight: 700;
+      }
+      &.active {
+        border-bottom: 3px solid $primary;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .table-buttom {
+    .card {
+      padding: 10px 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font-size: 12px;
+      }
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        .btn-pagination {
+          padding: 2px 8px;
+          font-size: 12px;
+          color: $primary;
+          background-color: #fff;
+          border: 1px solid $primary;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+.modal-dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  .modal-header {
+    flex-direction: column-reverse;
+  }
+  .modal-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .modal-body {
+    padding: 10px 50px;
+    .form-label {
+      margin-bottom: 2px;
+    }
+  }
+  .modal-footer {
+    justify-content: center;
+  }
+}

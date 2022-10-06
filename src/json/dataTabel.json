@@ -1,0 +1,62 @@
+{
+  "user": [
+    {
+      "_id": "1",
+      "name": "Jhon Dea",
+      "phone": "08123412342",
+      "email": "jhondhoe@gmail.com"
+    },
+    {
+      "_id": "2",
+      "name": "Mark",
+      "phone": "08123412342",
+      "email": "jhondhoe@gmail.com"
+    },
+    {
+      "_id": "2",
+      "name": "Mark",
+      "phone": "08123412342",
+      "email": "jhondhoe@gmail.com"
+    },
+    {
+      "_id": "2",
+      "name": "Mark",
+      "phone": "08123412342",
+      "email": "jhondhoe@gmail.com"
+    },
+    {
+      "_id": "2",
+      "name": "Mark",
+      "phone": "08123412342",
+      "email": "jhondhoe@gmail.com"
+    },
+    {
+      "_id": "3",
+      "name": "Jhon Dea",
+      "phone": "08123412342",
+      "email": "jhondhoe@gmail.com"
+    }
+  ],
+  "article": [
+    {
+      "_id": "1",
+      "type": "Default",
+      "title": "Waspada Fintech Ilegal Kenali Ciri-cirinya"
+    },
+    {
+      "_id": "1",
+      "type": "Default",
+      "title": "Waspada Fintech Ilegal Kenali Ciri-cirinya"
+    },
+    {
+      "_id": "1",
+      "type": "Default",
+      "title": "Waspada Fintech Ilegal Kenali Ciri-cirinya"
+    },
+    {
+      "_id": "1",
+      "type": "Default",
+      "title": "Waspada Fintech Ilegal Kenali Ciri-cirinya"
+    }
+  ]
+}

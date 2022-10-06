@@ -1,0 +1,15 @@
+$enable-ltr: true;
+$enable-rtl: true;
+@import "variables";
+
+@import "@coreui/coreui/scss/coreui";
+// // Import Chart.js custom tooltips styles
+@import "@coreui/chartjs/scss/coreui-chartjs";
+
+@import "layout";
+@import "containerGrid";
+@import "header";
+@import "sidebar";
+@import "dashboard";
+@import "user";
+@import "mobile";

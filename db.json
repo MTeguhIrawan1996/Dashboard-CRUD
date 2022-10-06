@@ -1,0 +1,10 @@
+{
+  "products": [
+    {
+      "name": "Mark Doe",
+      "phone": "081234",
+      "email": "mark@gmail.com",
+      "id": 1
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .header-toggler {
+    border: 0px;
+    border-radius: 2px;
+    background: $primary;
+    padding: 8px 10px !important;
+  }
+
+  .header-toggler:active,
+  .header-toggler:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .header-toggler-icon {
+    width: 20px;
+    height: 17px;
+    background-image: none;
+    position: relative;
+    border-bottom: 2px solid #fff;
+    transition: all 300ms linear;
+  }
+  .header-toggler-icon:focus {
+    border-bottom: 2px solid #fff;
+  }
+  .header-toggler-icon:after,
+  .header-toggler-icon:before {
+    width: 20px;
+    position: absolute;
+    height: 2px;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    content: "";
+    z-index: 2;
+    transition: all 300ms linear;
+  }
+  .header-toggler-icon:after {
+    top: 8px;
+  }
+  .header-toggler[aria-expanded="true"] .header-toggler-icon:after {
+    transform: rotate(45deg);
+    background-color: #fff;
+    height: 2px;
+  }
+  .header-toggler[aria-expanded="true"] .header-toggler-icon:before {
+    transform: translateY(8px) rotate(-45deg);
+    background-color: #fff;
+    height: 2px;
+  }
+  .header-toggler[aria-expanded="true"] .header-toggler-icon {
+    border-color: transparent;
+  }
+
+  .container-fluid {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    .header-toggler {
+      padding: 4px 10px;
+    }
+    .breadcrumb > li {
+      color: $primary;
+      font-weight: 700;
+      &.active {
+        font-weight: 600;
+        opacity: 0.7;
+      }
+    }
+    .btn-logout {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      border: 0;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
