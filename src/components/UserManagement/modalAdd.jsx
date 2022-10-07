@@ -13,26 +13,33 @@ import CIcon from "@coreui/icons-react";
 import { cilPlus } from "@coreui/icons";
 import { useDispatch } from "react-redux";
 import { saveUsers } from "fetures/userSlice";
+import { notif } from "fetures/notifSlice";
 
 const ModalAdd = (props) => {
   const { show, onClose } = props;
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+
   const dispatch = useDispatch();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const result = await dispatch(saveUsers({ name, phone, email })).unwrap();
       if (result) {
-        console.log("succes add");
+        dispatch(
+          notif({ message: "succes Add data", color: "dark", counter: true })
+        );
         setName("");
         setPhone("");
         setEmail("");
+        onClose();
       }
     } catch (err) {
-      // handle error here
-      console.log("something worng");
+      dispatch(
+        notif({ message: "Something Worng", color: "dark", counter: true })
+      );
     }
   };
   return (

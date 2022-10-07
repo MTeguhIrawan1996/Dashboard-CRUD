@@ -1,14 +1,17 @@
 import React from "react";
 import { Content, Dashboard, News, UserManagement } from "components";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
+import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
+import { ToastContainer } from "react-toastify";
 import "./assets/scss/style.scss";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <>
       <Router>
         <Content>
+          <ToastContainer />
           <Routes>
             <Route path="/">
               <Route index element={<Dashboard />} />

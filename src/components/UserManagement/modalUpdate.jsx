@@ -11,7 +11,7 @@ import {
 } from "@coreui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { userSelectors, updateUsers } from "fetures/userSlice";
-import { useNavigate } from "react-router-dom";
+import { notif } from "fetures/notifSlice";
 
 const ModalUpdate = (props) => {
   const { show, onClose, userId } = props;
@@ -19,7 +19,6 @@ const ModalUpdate = (props) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const navigate = useNavigate();
 
   const user = useSelector((state) => userSelectors.selectById(state, userId));
 
@@ -38,9 +37,11 @@ const ModalUpdate = (props) => {
         updateUsers({ id: userId, name, phone, email })
       ).unwrap();
       if (result) {
-        console.log("succes Update");
+        dispatch(
+          notif({ message: "succes Edit data", color: "dark", counter: true })
+        );
+        onClose();
       }
-      navigate(0);
     } catch (err) {
       // handle error here
       console.log("something worngggg");

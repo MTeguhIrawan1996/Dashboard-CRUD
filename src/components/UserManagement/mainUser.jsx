@@ -23,6 +23,9 @@ import ModalAdd from "./modalAdd";
 import ModalUpdate from "./modalUpdate";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers, userSelectors, deleteUsers } from "fetures/userSlice";
+import { notif } from "fetures/notifSlice";
+import { toast } from "react-toastify";
+import { confirmAlert } from "react-confirm-alert"; // Import
 
 const UserManagement = () => {
   const [visible, setVisible] = useState(false);
@@ -30,16 +33,35 @@ const UserManagement = () => {
   const [visibleUpdate, setVisibleUpdate] = useState(false);
   const dispatch = useDispatch();
   const users = useSelector(userSelectors.selectAll);
+  const counter = useSelector((state) => state.notif);
 
   useEffect(() => {
-    dispatch(getUsers());
-  }, [dispatch]);
+    const notify = () => toast(`${counter.message}`, { theme: counter.color });
+    let isCancel = false;
+    if (!isCancel) {
+      dispatch(getUsers());
+      if (counter.counter) {
+        notify();
+      }
+      dispatch(notif({ counter: false }));
+    }
+    return () => {
+      isCancel = true;
+    };
+  }, [dispatch, counter.counter]);
+
+  const handleUpdate = (id) => {
+    setVisibleUpdate(!visibleUpdate);
+    setUpdateById(id);
+  };
 
   const handleDelete = async (id) => {
     try {
       const result = await dispatch(deleteUsers(id)).unwrap();
       if (result) {
-        console.log("succes Delete");
+        dispatch(
+          notif({ message: "Delete Success", color: "dark", counter: true })
+        );
       }
     } catch (err) {
       console.log(err);
@@ -47,9 +69,20 @@ const UserManagement = () => {
     }
   };
 
-  const handleUpdate = (id) => {
-    setVisibleUpdate(!visibleUpdate);
-    setUpdateById(id);
+  const submit = (id) => {
+    confirmAlert({
+      title: "Confirm to delete",
+      message: "Are you sure to do this.",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => handleDelete(id),
+        },
+        {
+          label: "No",
+        },
+      ],
+    });
   };
   return (
     <div className="user">
@@ -149,7 +182,7 @@ const UserManagement = () => {
                           </button>
                           <button
                             className="btn btn-danger ms-2"
-                            onClick={() => handleDelete(user.id)}
+                            onClick={() => submit(user.id)}
                           >
                             Delete
                           </button>
